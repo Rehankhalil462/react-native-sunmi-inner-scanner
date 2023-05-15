@@ -91,6 +91,7 @@ public class SunmiInnerScannerModule extends ReactContextBaseJavaModule {
                 intent.putExtra("IS_SHOW_ALBUM", options.getBoolean("showAlbum"));
             }
         }
+        intent.putExtra("IS_INTERLEAVED_2_OF_5_ENABLE", true);
 /**
 
  //扫码模块有一些功能选项，开发者可以通过传递参数控制这些参数，
