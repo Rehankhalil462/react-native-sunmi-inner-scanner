@@ -1,5 +1,6 @@
 # react-native-sunmi-inner-scanner
-http://docs.sunmi.com/htmls/index.html?lang=zh##V1文档资源  根据商米V1文档开发打印接口
+
+http://docs.sunmi.com/htmls/index.html?lang=zh##V1文档资源 根据商米 V1 文档开发打印接口
 (React native plugin Referring the sunmi V1 scanner document and demos)
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/januslo/react-native-sunmi-inner-scanner/master/LICENSE) [![npm version](https://badge.fury.io/js/react-native-sunmi-inner-scanner.svg)](https://www.npmjs.com/package/react-native-sunmi-inner-scanner)
@@ -17,7 +18,7 @@ npm i react-native-sunmi-inner-scanner --save
 
 or you may need to install via the clone address directly:
 
-```bash 
+```bash
 npm install https://github.com/januslo/react-native-sunmi-inner-scanner.git --save
 ```
 
@@ -29,21 +30,22 @@ Links this plugin to your project.
 react-native link react-native-sunmi-inner-scanner
 ```
 
-or you may need to link manually 
-* modify settings.gradle
+or you may need to link manually
 
-```javascript 
+- modify settings.gradle
+
+```javascript
 include ':react-native-sunmi-inner-scanner'
 project(':react-native-sunmi-inner-scanner').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sunmi-inner-scanner/android')
 ```
 
-* modify  app/build.gradle,add dependenceie：
+- modify app/build.gradle,add dependenceie：
 
 ```javascript
 compile project(':react-native-sunmi-inner-scanner')
 ```
 
-* adds package references to  MainPackage.java 
+- adds package references to MainPackage.java
 
 ```java
 
@@ -61,24 +63,25 @@ import com.sunmi.scanner.SunmiInnerScannerPackage;
 ```
 
 Step 3: refer in the javascript:
-*Using the default inner scanner:
-```javascript
-import SunmiInnerScanner from 'react-native-sunmi-inner-scanner';
+\*Using the default inner scanner:
 
+```javascript
+import SunmiInnerScanner from "react-native-sunmi-inner-scanner";
 ```
-*Customer your preview with the SunmiScannerView
+
+\*Customer your preview with the SunmiScannerView
 
 ```javascript
-import {SunmiScannerView} from 'react-native-sunmi-inner-scanner';
-
+import { SunmiScannerView } from "react-native-sunmi-inner-scanner";
 ```
 
 **Usage:**
 You may need to refer the excamples from the 'examples' folder of the source code.
 
-*Using SunmiInnerScanner
+\*Using SunmiInnerScanner
 
 you can open the scanner with default options:
+
 ```javascript
 
  async _openDefaultScanner(){
@@ -89,16 +92,19 @@ you can open the scanner with default options:
         });
 
     }
-    
+
 ```
+
 or you can specify the options:
+
 ```javascript
  async _openScannerWithOptions(){
         let options={
             showSetting:true,
             showAlbum:true,
-            paySound:true,
-            payVibrate:true,// V1 not support
+            playSound:true,
+            playVibrate:true,// V1 not support
+            enableITFDetection:true
         }
         let result = await SunmiInnerScanner.openScannerWithOptions(options);
         this.setState({result: JSON.stringify(result)}
@@ -110,7 +116,7 @@ or you can specify the options:
 
 ```
 
-*Using SunmiScannerView
+\*Using SunmiScannerView
 
 ```javascript
 
@@ -134,6 +140,7 @@ or you can specify the options:
 ```
 
 providing the properties definition for referring:
+
 ```javascript
 
 
@@ -161,7 +168,7 @@ providing the properties definition for referring:
         onCodeScan: function (result) {
             console.log(result);
         },
-        scanInterval:1000, // interval of scan operation after last record was recongized. 
+        scanInterval:1000, // interval of scan operation after last record was recongized.
         mute:0 // mute the "bee" sound on success. 1 - mute;0 - not mute
     }
 ```
