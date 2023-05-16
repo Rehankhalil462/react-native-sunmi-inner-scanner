@@ -76,13 +76,14 @@ public class SunmiInnerScannerModule extends ReactContextBaseJavaModule {
         }
         final Intent intent = new Intent("com.summi.scan");
         intent.setPackage("com.sunmi.sunmiqrcodescanner");
+        intent.putExtra("IS_INTERLEAVED_2_OF_5_ENABLE", true);
 
         if (options != null) {
-            if (options.hasKey("paySound")) {
-                intent.putExtra("PLAY_SOUND", options.getBoolean("paySound"));
+            if (options.hasKey("playSound")) {
+                intent.putExtra("PLAY_SOUND", options.getBoolean("playSound"));
             }
-            if (options.hasKey("payVibrate")) {
-                intent.putExtra("PLAY_VIBRATE", options.getBoolean("payVibrate"));
+            if (options.hasKey("playVibrate")) {
+                intent.putExtra("PLAY_VIBRATE", options.getBoolean("playVibrate"));
             }
             if (options.hasKey("showSetting")) {
                 intent.putExtra("IS_SHOW_SETTING", options.getBoolean("showSetting"));
@@ -90,10 +91,9 @@ public class SunmiInnerScannerModule extends ReactContextBaseJavaModule {
             if (options.hasKey("showAlbum")) {
                 intent.putExtra("IS_SHOW_ALBUM", options.getBoolean("showAlbum"));
             }
-            if(options.hasKey("enableITFDetection")){
-                intent.putExtra("IS_INTERLEAVED_2_OF_5_ENABLE", options.getBoolean("enableITFDetection"));
-            }
+         
         }
+
 /**
 
  //扫码模块有一些功能选项，开发者可以通过传递参数控制这些参数，
